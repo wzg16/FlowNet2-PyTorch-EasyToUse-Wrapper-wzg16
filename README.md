@@ -5,28 +5,36 @@ NVIDIA提供的flownet2-Pytorch中存在一些问题，难以按照他们提供�
 
 # 安装步骤
 ## step1:下载代码
-`git clone https://github.com/FlowNet2-PyTorch-EasyToUse-Wrapper-wzg16.git` <br>
-`cd FlowNet2-PyTorch-EasyToUse-Wrapper-wzg16 `
+```bash
+git clone https://github.com/FlowNet2-PyTorch-EasyToUse-Wrapper-wzg16.git
+cd FlowNet2-PyTorch-EasyToUse-Wrapper-wzg16
+```
 
 ## step2: 创建环境
-`conda create -n flownet2_pytorch_env python=3.7` <br>
-`conda activae flownet2_pytorch_env`
+```
+conda create -n flownet2_pytorch_env python=3.7  
+conda activae flownet2_pytorch_env
+```
 
 ## step3: 安装依赖包
-`conda install pytorch==1.9.0 torchvision==0.6.1 cudatoolkit=10.2 -c pytorch` <br>
-`pip install numpy` <br>
-`pip install tensorboardX` <br>
-`pip install setproctitle` <br>
-`pip install colorama` <br>
-`pip install tqdm` <br>
-`pip install scipy` <br>
-`pip install matplotlib` <br>
-`pip install pytz` <br>
-`pip install opencv-python` <br>
+```
+conda install pytorch==1.9.0 torchvision==0.6.1 cudatoolkit=10.2 -c pytorch  
+pip install numpy  
+pip install tensorboardX  
+pip install setproctitle  
+pip install colorama  
+pip install tqdm  
+pip install scipy  
+pip install matplotlib  
+pip install pytz  
+pip install opencv-python  
+```
 
 ## step4: 安装flownet2_pytorch
-`cd src` <br>
-`./install.sh` <br>
+```
+cd src
+./install.sh
+```
 
 ## step5: 下载checkpoints,放入folder ./flownet2_pre_train 
 **FlowNet2S**   
@@ -39,9 +47,10 @@ NVIDIA提供的flownet2-Pytorch中存在一些问题，难以按照他们提供�
 提取码：w97r <br>
 
 ## step6:测试
-`cd .. `<br>
-`python flownet2_test_wzg.py` <br>
-
+```
+cd .. 
+python flownet2_test_wzg.py
+```
 # 运行示例
 ![test](https://github.com/wzg16/FlowNet2-PyTorch-EasyToUse-Wrapper-wzg16/blob/master/datasets/flow_test1.jpg)
 
