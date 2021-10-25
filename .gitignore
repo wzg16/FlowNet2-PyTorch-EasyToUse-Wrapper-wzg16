@@ -1,0 +1,7 @@
+flownet2_pre_train/FlowNet2_checkpoint.pth.tar
+flownet2_pre_train/FlowNet2-C_checkpoint.pth.tar
+flownet2_pre_train/FlowNet2-CS_checkpoint.pth.tar
+flownet2_pre_train/FlowNet2-CSS_checkpoint.pth.tar
+flownet2_pre_train/FlowNet2-CSS-ft-sd_checkpoint.pth.tar
+flownet2_pre_train/FlowNet2-S_checkpoint.pth.tar
+flownet2_pre_train/FlowNet2-SD_checkpoint.pth.tar

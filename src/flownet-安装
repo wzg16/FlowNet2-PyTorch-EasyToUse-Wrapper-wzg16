@@ -1,0 +1,126 @@
+0） 创建环境
+conda create -n flownet2 python=3.6.9
+2）进入虚拟环境
+conda activae flownet2
+
+3）安装gcc7,g++7
+sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+sudo apt-get update 
+sudo apt-get install gcc-7
+sudo apt-get install g++-7
+
+4)将gcc7，g++7作为默认选项
+sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-7 100
+sudo update-alternatives --config gcc
+
+sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-7 100
+sudo update-alternatives --config g++
+
+sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-7 50
+
+5) 查看所有gcc版本
+ls /usr/bin/gcc*
+
+6） 查看当前gcc版本
+gcc -v
+
+7）安装pytorch
+可行版本1：
+  conda install pytorch==1.5.1 torchvision==0.6.1 cudatoolkit=10.1 -c pytorch
+
+可行版本2：
+  conda uninstall python
+  conda install python==3.7
+  conda install pytorch==1.9.0 torchvision==0.6.1 cudatoolkit=10.2 -c pytorch
+
+8） 安装依赖包
+pip install numpy
+pip install tensorboardX
+pip install setproctitle
+pip install colorama
+pip install tqdm
+pip install scipy
+pip install matplotlib
+pip install pytz
+pip install opencv-python
+
+
+9) 下载flownet代码
+git clone https://github.com/NVIDIA/flownet2-pytorch.git
+cd flownet2-pytorch
+
+10)对以下文件进行行该
+在以下三个文件中
+networks/channelnorm_package/setup.py
+networks/resample2d_package/setup.py
+networks/correlation_package/setup.py
+把
+cxx_args = ['-std=c++11']
+修改为
+cxx_args = ['-std=c++14']
+
+11）在 flownet2-pytorch/utils/frame_utils.py  中
+把 from scipy.misc import imread 修改为 from imageio import imread
+
+12）在 flownet2-pytorch/datasets.py 中
+把 from scipy.misc import imread, imresize 修改为 from imageio import imread
+
+13) 在flownet2-pytorch/networks/channelnorm_package/channelnorm.py中第9行添加 input1 = input1.contiguous()，
+修改后代码如下：
+  class ChannelNormFunction(Function):
+      @staticmethod
+      def forward(ctx, input1, norm_deg=2):
+          input1 = input1.contiguous()
+          assert input1.is_contiguous()
+
+14） 进入install.sh所在文件夹后输入如下命令
+./install.sh
+
+15） 输入以下命令进行测试
+python main.py -h
+测试的过程中会出现各种module的缺失问题，缺什么就输入如下命令:
+pip install *
+根据个人经验，在8）中我已经把所有需要安装的module都记录下来了
+ 
+ 测试成功应该输出以下结果：
+usage: main.py [-h] [--start_epoch START_EPOCH] [--total_epochs TOTAL_EPOCHS]
+               [--batch_size BATCH_SIZE] [--train_n_batches TRAIN_N_BATCHES]
+               [--crop_size CROP_SIZE [CROP_SIZE ...]]
+             ...
+             ...
+Model:
+  --model {ChannelNorm,FlowNet2,FlowNet2C,FlowNet2CS,FlowNet2CSS,FlowNet2S,FlowNet2SD,Resample2d,tofp16,tofp32}
+
+
+16) 跑inference测试
+（1）下载数据集 # 为了测试网络，我只下载了 MPI-Sintel 数据集，并新建一个datasets文件夹，把数据集放在这个文件夹下
+  # 下载地址：https://files.is.tue.mpg.de/sintel/MPI-Sintel-complete.zip
+（2）下载checkpoint # 注： 下载得到的文件是一个整体，不能用rar,或tar解压。这个文件直接使用即可
+ (3)数据集及checkpoint路径设置
+ (4)inference测试，我的测试代码是
+    python main.py --inference \
+    --model FlowNet2 \
+    --save_flow \
+    --inference_dataset MpiSintelClean \
+    --inference_dataset_root ./datasets/MPI-Sintel/training \
+    --inference_visualize \
+    --resume ./pre_train/FlowNet2_checkpoint.pth.tar
+    # 备注：需要修改的仅仅是 --inference_dataset_root ./datasets/MPI-Sintel/training \
+    # 和   --resume ./pre_train/FlowNet2_checkpoint.pth.tar 的路径
+    # inference时，只能选择 /MPI-Sintel/training 文件夹
+
+17） flownet2封装
+见 https://github.com/wzg16/FlowNet2-PyTorch-EasyToUse-Wrapper
+
+# 其他问题
+问题1： ModuleNotFoundError: No module named 'resample2d_cuda'
+  解决方法1： Go to the folder:
+    step1) 进入/flownet2_pytorch/networks/resample2d_package/
+    step2) run the commands: 
+      python3 setup.py build
+    step3) run the commands:
+      python3 setup.py install
+
+  解决方法2： 重新运行
+    ./install.sh
+
