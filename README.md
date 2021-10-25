@@ -1,4 +1,5 @@
 # Flownet2-Pytorch-EasyToUse-Wrapper-wzg16
+修正NVIDIA提供的flownet2-Pytorch中存在的问题，并封装。<br>
 
 # Installation:
 ## step1:下载代码
