@@ -18,8 +18,8 @@ conda activate flownet2_pytorch_env
 
 ## step3: 安装依赖包
 ```
-conda install pytorch==1.9.0 torchvision==0.6.1 cudatoolkit=10.2 -c pytorch  
-pip install numpy  tensorboardX  setproctitle colorama tqdm scipy matplotlib pytz opencv-python
+pip install torch==1.9.0 torchvision==0.6.1 cudatoolkit=10.2 # -c pytorch  
+pip install numpy  tensorboardX  setproctitle colorama tqdm scipy matplotlib pytz opencv-python imageio
 ```
 
 ## step4: 安装flownet2_pytorch
