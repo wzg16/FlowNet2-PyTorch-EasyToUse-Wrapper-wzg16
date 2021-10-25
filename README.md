@@ -27,18 +27,21 @@
 `./install.sh` <br>
 
 ## step5: 下载checkpoints,放入folder ./flownet2_pre_train 
-FlowNet2S <br>
-FlowNet2C <br>
-FlowNet2CS <br>
-FlowNet2CSS <br>
-FlowNet2SD <br>
-FlowNet2 <br>
+**FlowNet2S**   
+**FlowNet2C**  
+**FlowNet2CS**  
+**FlowNet2CSS**  
+**FlowNet2SD**  
+**FlowNet2**  
 链接：https://pan.baidu.com/s/19g9ufG5zPARxMFireouXXQ  <br>
 提取码：w97r <br>
 
 ## step6:测试
 `cd .. `<br>
 `python flownet2_test_wzg.py` <br>
+
+# 运行示例
+
 
 
 # Reference
