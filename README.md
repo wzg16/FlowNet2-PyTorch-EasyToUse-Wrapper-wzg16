@@ -1,7 +1,9 @@
 # Flownet2-Pytorch-EasyToUse-Wrapper-wzg16
-修正NVIDIA提供的flownet2-Pytorch中存在的问题，并封装。<br>
+NVIDIA提供的flownet2-Pytorch中存在一些问题，难以按照他们提供的安装步骤顺利安装。我根据网上的资料及自己的实践整理了一份flownet2-Pytorch的安装教程，见：[flownet2-pytorch安装](https://github.com/wzg16/FlowNet2-PyTorch-EasyToUse-Wrapper-wzg16/blob/master/src/flownet-%E5%AE%89%E8%A3%85).  
+由于我只需要使用flownet2-Pytorch，而不需要对其进行改进或重新训练，因此我把NVIDIA版本的flownet2-Pytorch进行了封装,使得可以直接使用flownet2的预训练模型。本文主要介绍我封装后的flownet2的安装与使用教程。  
+  
 
-# Installation:
+# 安装步骤
 ## step1:下载代码
 `git clone https://github.com/FlowNet2-PyTorch-EasyToUse-Wrapper-wzg16.git` <br>
 `cd FlowNet2-PyTorch-EasyToUse-Wrapper-wzg16 `
