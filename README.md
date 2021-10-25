@@ -41,7 +41,7 @@
 `python flownet2_test_wzg.py` <br>
 
 # 运行示例
-
+![test] (https://github.com/wzg16/FlowNet2-PyTorch-EasyToUse-Wrapper-wzg16/blob/master/datasets/flow_test1.jpg)
 
 
 # Reference
