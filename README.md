@@ -7,6 +7,7 @@ NVIDIA提供的flownet2-Pytorch中存在一些问题，难以按照他们提供�
 ## step1:下载代码
 ```bash
 git clone https://github.com/FlowNet2-PyTorch-EasyToUse-Wrapper-wzg16.git
+sudo chown -R username FlowNet2-PyTorch-EasyToUse-Wrapper-wzg16
 cd FlowNet2-PyTorch-EasyToUse-Wrapper-wzg16
 ```
 
