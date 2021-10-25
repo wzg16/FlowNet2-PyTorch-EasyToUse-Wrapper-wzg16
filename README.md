@@ -13,7 +13,7 @@ cd FlowNet2-PyTorch-EasyToUse-Wrapper-wzg16
 ## step2: 创建环境
 ```
 conda create -n flownet2_pytorch_env python=3.7  
-conda activae flownet2_pytorch_env
+conda activate flownet2_pytorch_env
 ```
 
 ## step3: 安装依赖包
