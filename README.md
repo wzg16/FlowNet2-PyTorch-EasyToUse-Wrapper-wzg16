@@ -20,11 +20,12 @@ conda activate flownet2_pytorch_env
 ## step3: 安装依赖包
 ```
 conda install condatoolkit=10.2
-pip install torch==1.9.0 torchvision  #==0.6.1  # -c pytorch  
+pip install torch==1.9.0 torchvision
 pip install numpy  tensorboardX  setproctitle colorama tqdm scipy matplotlib pytz opencv-python imageio
 ```
 
 ## step4: 安装flownet2_pytorch
+如果更新了环境中的package（主要是torch和torchvision）,需要重新执行一次**step4**,否则会报错。
 ```
 cd src
 ./install.sh
@@ -45,6 +46,7 @@ cd src
 cd .. 
 python flownet2_test_wzg.py
 ```
+
 # 运行示例
 ![test](https://github.com/wzg16/FlowNet2-PyTorch-EasyToUse-Wrapper-wzg16/blob/master/datasets/flow_test1.jpg)
 
